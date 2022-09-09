@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\WargaController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DiseaseController;
+use App\Http\Controllers\HospitalController;
 use Illuminate\Testing\LoggedExceptionCollection;
 
 /*
@@ -29,3 +32,6 @@ Route::delete('/warga/{id}', [WargaController::class, 'destroy']);
 
 Route::get('/data', [LoginController::class, 'login']);
 Route::get('/login/store', [LoginController::class, 'create']);
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard'); 
+Route::resource('diseases', DiseaseController::class);
+Route::resource('hospitals', HospitalController::class);
